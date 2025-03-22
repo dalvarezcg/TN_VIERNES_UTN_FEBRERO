@@ -1,5 +1,5 @@
 import React  from 'react'
-import './App.css'
+import {ProductCard} from './components/ProductCard/ProductCard'
 
 function sumar (a,b) {
   return a + b
@@ -26,6 +26,8 @@ function App() {
   const handleClickButtonColor = (color) =>{
     alert('Clickeaste el boton ' + color)
   }
+
+
 
   return (
     <div className="App">
@@ -62,25 +64,6 @@ function App() {
     </div>
   )
 } */
-
-  /**
-   * ProductCard es un componente que renderiza una tarjeta de un producto
-   * con un titulo, una imagen y un precio
-   * @param {string} titulo - El titulo del producto
-   * @param {string} img - La url de la imagen del producto
-   * @param {number} precio - El precio del producto
-   * @returns {JSX.Element} Un JSX Element que renderiza la tarjeta del producto
-   */
-  const ProductCard = ({titulo, img, precio}) =>{
-
-    return (
-      <div>
-        <h2>{titulo}</h2>
-        <img src='https://http2.mlstatic.com/D_NQ_NP_938585-MLU73121330750_122023-O.webp'/>
-        <span>Precio: $</span>
-      </div>
-    )
-} 
 
 //Desestructuracion
 /* let objeto = {nombre: 'pepe', apellido: 'suarez' }

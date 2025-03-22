@@ -1,0 +1,23 @@
+/* 
+Estilos globales
+Estos estilos se aplican a toda la aplicacion
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(43, 43, 43);
+    color: white
+}
+
+a{
+    color: white
+}
+
+.price{
+    color: red;
+}

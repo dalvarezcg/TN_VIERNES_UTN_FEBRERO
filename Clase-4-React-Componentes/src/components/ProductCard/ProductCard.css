@@ -1,0 +1,24 @@
+.product-card{
+    width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(84, 84, 84);
+}
+
+.product-card_title{
+    font-family: sans-serif;
+
+}
+
+/* .product-card_img{
+    width: 100%;
+    border-radius: 10px;
+} */
+
+.product-card_price{
+
+}
+
+.product-card_icon{
+    color: red;
+}
