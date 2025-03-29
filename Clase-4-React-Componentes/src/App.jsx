@@ -27,7 +27,7 @@ function App() {
     alert('Clickeaste el boton ' + color)
   }
 
-
+  
 
   return (
     <div className="App">
