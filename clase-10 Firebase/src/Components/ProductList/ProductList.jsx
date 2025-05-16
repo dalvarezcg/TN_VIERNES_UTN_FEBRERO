@@ -17,6 +17,7 @@ const ProductList = () => {
         setTimeout(
             async () => {
                 const products_list_response = await getProducts()
+                console.log('products_list_response:', products_list_response)
                 if (products_list_response) {
                     setProducts(products_list_response)
                 }
@@ -43,19 +44,6 @@ const ProductList = () => {
         className: isAdmin ? 'caja-administrador' : 'caja',
         id: 'caja-especial'
     }
-
-    /* Don react nos pide que cada elemento de la lista a renderizar tenga una prop llamada key */
-    /* const componentes = [
-        <ProductCard {...products[0]} key={products[0].id}/>,
-        <ProductCard {...products[1]} key={products[1].id} />,
-        <ProductCard {...products[2]} key={products[2].id}/>
-    ]
-     */
-
-
-
-
-
 
     //EL objetivo seria crear el array de componentes de forma automatica
     const componentes = products.map(
