@@ -41,6 +41,9 @@ const CreateProductScreen = () => {
                     <label htmlFor="img">Seleciona una imagen:</label>
                     <input type='file' id='img' name='img' />
                 </div>
+                <button 
+                    type='submit'
+                >Crear producto</button>
             </form>
         </div>
     )
