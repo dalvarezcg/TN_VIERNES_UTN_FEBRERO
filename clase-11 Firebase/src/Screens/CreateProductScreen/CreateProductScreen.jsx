@@ -1,4 +1,6 @@
+import { addDoc, collection } from 'firebase/firestore'
 import React, { useState } from 'react'
+import database from '../../config/firebase'
 
 const CreateProductScreen = () => {
     //Cada vez que cambie el valor de un input voy a actualizar mi estado de formulario
@@ -9,6 +11,7 @@ const CreateProductScreen = () => {
         img: null
     }
     const [form_state, setFormState] = useState(initial_state_form)
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (event) => {
         let field = event.target.name
@@ -68,11 +71,28 @@ const CreateProductScreen = () => {
     const handleSubmit = async (event) => {
     
         event.preventDefault()
+        setLoading(true)
 
         //Subir la imagen a la DB de imagenes (imgbb)
         //Le pasamos la imagen guardada en el form_state
         const url_img = await uploadImgToImgBB(form_state.img)
-        console.log(url_img)
+
+        //Seleccionamos nuestra coleccion
+        const collection_ref = collection(database, 'products')
+        //Agregar un documento a la colleccion seleccionada
+        await addDoc(
+            collection_ref,
+            {
+                title: form_state.title,
+                price: form_state.price,
+                discount: form_state.discount,
+                img: url_img
+            }
+        )
+
+        //Reiniciar nuestro formulario
+        setFormState(initial_state_form)
+        setLoading(false)
     }
 
     console.log(form_state)
@@ -130,7 +150,11 @@ const CreateProductScreen = () => {
                 </div>
                 <button
                     type='submit'
-                >Crear producto</button>
+                    disabled={loading}
+                >
+                    {loading ? "Creando producto..." : 'Crear producto'}
+
+                </button>
             </form>
         </div>
     )
